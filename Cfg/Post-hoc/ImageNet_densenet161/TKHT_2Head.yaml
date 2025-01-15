@@ -1,0 +1,48 @@
+CALIBRATION:
+  ITERATIVE_TRAINING: False
+  MODE: Post-hoc
+  NEED_CALIBRATION_TRAIN: True
+  NEED_CLASSIFIER_TRAIN: False
+DATASET:
+  DATA_PATH: Generate_logits_datasets/ImageNet_densenet161.p
+  INPUTE_SIZE: None
+  IS_LOGITS_DATA: True
+  SAMPLER: None
+  SCENARIOS: Generate_logits
+  TEST: None
+  TRAIN: None
+  VALID: None
+EVALUATE:
+  METHOD_list: ['ECE_with_equal_mass', 'ICE_smooth', 'ICE_soft', 'ICE_strong', 'CECE', 'MSECE', 'WSECE', 'RBECE']
+MODEL:
+  DEVICE: cuda:0
+  JUST_EVAL: False
+  META_ARCHITECTURE: TKHT_2Head
+  NUM_CLASS: 1000
+  OUTPUT_DIR: output/Post-hoc/Generate_logits/ImageNet_densenet161/TKHT_2Head/
+  PRE_WEIGHT: 
+SEED: 20
+SOLVER:
+  BASE_LR: 0.1
+  BATCH_SIZE: 66
+  BETA: (0.9, 0.999)
+  CLR_STEPS: 2000
+  DEVICE_LIST: [1, 3]
+  GAMMA: 0.1
+  LR_SCHEDULER_NAME: Step_Decay
+  MAX_EPOCH: 150
+  MAX_ITER: 480000
+  MOMENTUM: 0.9
+  NESTEROV: False
+  NUM_WORKS: 8
+  OPTIMIZER: SGD
+  PARALLEL_TRAIN: False
+  PIN_MEMORY: False
+  SHUFFLE: True
+  START_ITER: 0
+  STEPS: [240000, 480000]
+  WARMUP_FACTOR: 0.001
+  WARMUP_ITERS: 1000
+  WARMUP_METHOD: linear
+  WEIGHT_DECAY: 0.0002
+VERSION: 2
